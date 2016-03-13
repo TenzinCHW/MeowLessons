@@ -1,0 +1,10 @@
+name of constant          value              dimension
+------------------------------------------------------------
+speedoflight              299792458.0        m/s
+gravitationalconstant     6.67259e-11        m**3/kg/s**2
+Planckconstant            6.6260755e-34      J*s
+elementarycharge          1.60217733e-19     C
+Avogadronumber            6.0221367e23       1/mol
+Boltzmannconstant         1.380658e-23       J/K
+electronmass              9.1093897e-31      kg
+protonmass                1.6726231e-27      kg

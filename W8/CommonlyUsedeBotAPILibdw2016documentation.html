@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Commonly Used eBot API — Libdw 2016 documentation</title>
+    
+    <link rel="stylesheet" href="CommonlyUsedeBotAPILibdw2016documentation_files/alabaster.css" type="text/css">
+    <link rel="stylesheet" href="CommonlyUsedeBotAPILibdw2016documentation_files/pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2016',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="CommonlyUsedeBotAPILibdw2016documentation_files/jquery.js"></script>
+    <script type="text/javascript" src="CommonlyUsedeBotAPILibdw2016documentation_files/underscore.js"></script>
+    <script type="text/javascript" src="CommonlyUsedeBotAPILibdw2016documentation_files/doctools.js"></script>
+    <link rel="top" title="Libdw 2016 documentation" href="http://people.sutd.edu.sg/%7Eoka_kurniawan/10_009/doc/html/index.html">
+    <link rel="next" title="All eBot API" href="http://people.sutd.edu.sg/%7Eoka_kurniawan/10_009/doc/html/ebot_api_all.html">
+    <link rel="prev" title="Getting Started with the eBot" href="http://people.sutd.edu.sg/%7Eoka_kurniawan/10_009/doc/html/gettingstarted.html">
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="commonly-used-ebot-api">
+<h1>Commonly Used eBot API<a class="headerlink" href="#commonly-used-ebot-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="connections">
+<h2>Connections<a class="headerlink" href="#connections" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="eBot.eBot.connect">
+<code class="descclassname">eBot.</code><code class="descname">connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens connection with the eBot via BLE. Connects with the first eBot that the computer is paired to.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – No eBot found</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="eBot.eBot.disconnect">
+<code class="descclassname">eBot.</code><code class="descname">disconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.disconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close BLE connection with eBot.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="eBot.eBot.buzzer">
+<code class="descclassname">eBot.</code><code class="descname">buzzer</code><span class="sig-paren">(</span><em>btime</em>, <em>bfreq</em><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.buzzer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plays the buzzer for given time at given frequency.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>btime</strong> – Time in Seconds</li>
+<li><strong>bfreq</strong> – Frequency in Hertz</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="eBot.eBot.led">
+<code class="descclassname">eBot.</code><code class="descname">led</code><span class="sig-paren">(</span><em>bool</em><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.led" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls the state of the LED on the eBot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bool</strong> – Defines whether the LED should turn ON (1) or OFF (0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="eBot.eBot.led_on">
+<code class="descclassname">eBot.</code><code class="descname">led_on</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.led_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turns the LED on the eBot ON.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="eBot.eBot.led_off">
+<code class="descclassname">eBot.</code><code class="descname">led_off</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.led_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turns the LED on the eBot OFF.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="eBot.eBot.wheels">
+<code class="descclassname">eBot.</code><code class="descname">wheels</code><span class="sig-paren">(</span><em>LS</em>, <em>RS</em><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.wheels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls the speed of the wheels of the robot according to the specified values
+:param LS: Speed of left motor
+:param RS: Speed of right motor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="eBot.eBot.wheel_calibrate">
+<code class="descclassname">eBot.</code><code class="descname">wheel_calibrate</code><span class="sig-paren">(</span><em>LS</em>, <em>RS</em><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.wheel_calibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls the speed of the wheels of the robot according to the specified values
+:param LS: Speed of left motor
+:param RS: Speed of right motor</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h2>Outputs<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="eBot.eBot.acceleration">
+<code class="descclassname">eBot.</code><code class="descname">acceleration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.acceleration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves and returns accelerometer values; absolute values of X,Y and theta coordinates of robot with reference
+to starting position.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">acc_values: Accelerometer values</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="eBot.eBot.light">
+<code class="descclassname">eBot.</code><code class="descname">light</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.light" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves and returns a list of tuples with the light index. 0 index is front and 1st index is top LDR readings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">ldrvalue: LDR Readings</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="eBot.eBot.obstacle">
+<code class="descclassname">eBot.</code><code class="descname">obstacle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.obstacle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tells whether or not there is an obstacle less than 250 mm away from the front of the eBot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if obstacle exists</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="eBot.eBot.odometry">
+<code class="descclassname">eBot.</code><code class="descname">odometry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.odometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves and returns the odometry values of the eBot as a Pose object with respect to the robot initial position. 
+Pose.x: x coordinate in meters
+Pose.y: y coordinate in meters
+Pose.theta: rotation in radians</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Pose object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Pose: Represent the x, y, theta pose of an object in 2D space</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="eBot.eBot.sonars">
+<code class="descclassname">eBot.</code><code class="descname">sonars</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.sonars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves and returns all six ultrasonic sensor values from the eBot in meters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">sonarValues</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="eBot.eBot.temperature">
+<code class="descclassname">eBot.</code><code class="descname">temperature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eBot.eBot.temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves and returns temperature reading from the eBot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Temperature value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="http://people.sutd.edu.sg/%7Eoka_kurniawan/10_009/doc/html/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Commonly Used eBot API</a><ul>
+<li><a class="reference internal" href="#connections">Connections</a></li>
+<li><a class="reference internal" href="#outputs">Outputs</a></li>
+<li><a class="reference internal" href="#id1">Outputs</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="http://people.sutd.edu.sg/%7Eoka_kurniawan/10_009/doc/html/index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="http://people.sutd.edu.sg/%7Eoka_kurniawan/10_009/doc/html/gettingstarted.html" title="previous chapter">Getting Started with the eBot</a></li>
+      <li>Next: <a href="http://people.sutd.edu.sg/%7Eoka_kurniawan/10_009/doc/html/ebot_api_all.html" title="next chapter">All eBot API</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="http://people.sutd.edu.sg/%7Eoka_kurniawan/10_009/doc/html/_sources/ebot_api_common.txt" rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input name="q" type="text">
+      <input value="Go" type="submit">
+      <input name="check_keywords" value="yes" type="hidden">
+      <input name="area" value="default" type="hidden">
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      ©2016, Oka Kurniawan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="http://people.sutd.edu.sg/%7Eoka_kurniawan/10_009/doc/html/_sources/ebot_api_common.txt" rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  
+</body></html>

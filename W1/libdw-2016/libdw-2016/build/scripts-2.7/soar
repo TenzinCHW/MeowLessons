@@ -1,0 +1,6 @@
+#!c:\users\hanwei\appdata\local\enthought\canopy\user\scripts\python.exe
+
+import form.main
+import soar
+import soar.application
+form.main.Application(soar.application.application)
