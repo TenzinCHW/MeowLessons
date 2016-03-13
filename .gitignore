@@ -1,0 +1,4 @@
+#only ignore if it isn't .py
+*
+!*.py
+!.gitignore
