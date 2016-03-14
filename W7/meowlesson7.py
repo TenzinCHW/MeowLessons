@@ -8,7 +8,8 @@ import numpy as np
 
 def energy_n(n):
     numerator = -((c.e ** 4) * c.m_e)
-    denominator = (8 * c.epsilon_0 ** 2 * n ** 2 * c.h ** 2)  # Note that it is epsilon_0**2 and not epsilon_0. There is a mistake in the notes.
+    denominator = (
+    8 * c.epsilon_0 ** 2 * n ** 2 * c.h ** 2)  # Note that it is epsilon_0**2 and not epsilon_0. There is a mistake in the notes.
     return round(numerator / denominator / c.e, 5)
 
 
@@ -275,7 +276,7 @@ def angular_wave_func(m, l, theta, phi):
 a = c.physical_constants['Bohr radius'][0]
 
 
-def radial_wave_func(n, l, r): #THERE IS SOMETHING WRONG WITH l = 0 WHERE IS IT.
+def radial_wave_func(n, l, r):  # THERE IS SOMETHING WRONG WITH l = 0 WHERE IS IT.
     # y1 = (2.0/(n*a))**3
     # y2 = fact(n-l-1)/float(2*n*fact(n+l)**3)
     # ya = np.sqrt(y1*y2)*np.exp(-r/(n*a))
@@ -288,7 +289,7 @@ def radial_wave_func(n, l, r): #THERE IS SOMETHING WRONG WITH l = 0 WHERE IS IT.
     y = lfunc(2 * float(r) / (n * a))
     # y1 = (2.0 / (a * n)) ** 3
     # y2 = fact(n - l - 1)/(2 * n * fact(n + 1) ** 3)
-    ya = np.sqrt((2.0 / (a * n)) ** 3 * fact(n - l - 1)/(2 * n * fact(n + l) ** 3))*np.e**(-float(r)/(n*a))
+    ya = np.sqrt((2.0 / (a * n)) ** 3 * fact(n - l - 1) / (2 * n * fact(n + l) ** 3)) * np.e ** (-float(r) / (n * a))
     yb = (2 * float(r) / n / a) ** l
     ans = ya * yb * y / (a ** -1.5)
     return np.round(ans, 5)
@@ -298,3 +299,6 @@ print radial_wave_func(1, 0, a)
 print radial_wave_func(2, 1, a)
 print radial_wave_func(2, 1, 2 * a)
 print radial_wave_func(3, 1, 2 * a)
+
+# Problem 9
+
