@@ -77,27 +77,34 @@ class StopWatch:
 # Problem 4
 
 class Line:
-    def __init__(self, c0, c1): #Initializes c0 and c1 of the class
+    def __init__(self, c0, c1):  # Initializes c0 and c1 of the class
         self.c0 = c0
         self.c1 = c1
 
-    def __call__(self, x): #Makes instance of class callable as a function
-        return round(self.c0 + self.c1 * x,1) #This is what will happen if you do something like...
-    #thisline = Line()
-    #thisline(5) <<< the function will operate on the argument passed in as x.
+    def __call__(self, x):  # Makes instance of class callable as a function
+        return round(self.c0 + self.c1 * x, 1)  # This is what will happen if you do something like...
+
+    # thisline = Line()
+    # thisline(5) <<< the function will operate on the argument passed in as x.
 
     def table(self, startx, endx, n):
-        tableau = '' #Initialize a table. I'm calling it tableau, I think it's French.
+        tableau = ''  # Initialize a table. I'm calling it tableau, I think it's French.
         if n == 0:
-            return 'Error in printing table' # Case if n = 0
+            return 'Error in printing table'  # Case if n = 0
         elif startx == endx:
-            return '%10.2f' %(startx) + '%10.2f' %(self.c0+self.c1*startx) + '\n' #Case if start and end are the same
+            return '%10.2f' % (startx) + '%10.2f' % (
+                self.c0 + self.c1 * startx) + '\n'  # Case if start and end are the same
         else:
-            for i in numpy.linspace(startx, endx, n): #All other cases. Creates an array w start @ startx and end @ endx. Contains n points.
-                tableau += '%10.2f' % (float(i)) + '%10.2f' % (self.c0+self.c1*i) + '\n' #This is basic string formatting. f means float, 10 is the no. of charactaers, .2 means 2 dp.
+            for i in numpy.linspace(startx, endx, n):
+                # All other cases. Creates an array w start @ startx and end @ endx. Contains n points.
+                tableau += '%10.2f' % (float(i)) + '%10.2f' % (self.c0 + self.c1 * i) + '\n'
+                # This is basic string formatting. f means float, 10 is the no. of charactaers, .2 means 2 dp.
             return tableau
 
-def testLine(c0,c1,x,L,R,N):
-    line=Line(c0,c1)
-    return line(x),line.table(L,R,N)
-print testLine(1,2,2,1,5,4)
+
+def testLine(c0, c1, x, L, R, N):
+    line = Line(c0, c1)
+    return line(x), line.table(L, R, N)
+
+
+print testLine(1, 2, 2, 1, 5, 4)
