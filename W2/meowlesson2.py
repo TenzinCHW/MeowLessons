@@ -6,7 +6,7 @@ class Coordinate:
 
 def areaTriangle(p1, p2, p3):
     def side(meow1, meow2):
-        woof = math.sqrt((meow1.x - meow2.x)**2 + (meow1.y-meow2.y)**2)
+        woof = math.sqrt((meow1.x - meow2.x)**2 + (meow1.y-meow2.y)**2) #Formula for calculating length of a line using coords of 2 points
         return woof
     side1 = side(p1, p2)
     side2 = side(p2, p3)

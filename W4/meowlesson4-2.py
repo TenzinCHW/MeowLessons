@@ -30,7 +30,7 @@ def interlock(word1, word2, word3):
 #Problem 3
 print "Problem 3"
 def throwNdice(n, nExp):
-	chance = 5/6.0
+	chance = 5/6.0 #Chance of not getting a 6 on one throw
 	totalchance = 1 - chance**n
 	thechance = 1 - (1 - totalchance)**nExp
 	return thechance

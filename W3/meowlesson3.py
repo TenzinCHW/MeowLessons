@@ -60,12 +60,12 @@ def maxList(a):
     if a == []:
         return (None, None)
     else:
-        x = a[0]
+        x = a[0] #Initialize max values to any value. ANY. VALUE.
         y = a[0]
-        for i in range(len(a)):
-            if a[i] > y:
+        for i in range(len(a)): #Loop over length of a
+            if a[i] > y: #If i-th element of a is more than y, assign it to y
                 y = a[i]
-            if a[i] < x:
+            if a[i] < x: #Same for x
                 x = a[i]
     return (x, y)
 
@@ -91,7 +91,7 @@ print ans
 
 #Problem 6
 def isPalindrome(a):
-    return str(a) == str(a)[::-1]
+    return str(a) == str(a)[::-1] #str(a)[::-1] is a in reverse
 
 print "Test case 1: 1"
 ans = isPalindrome(1)
