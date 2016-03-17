@@ -138,7 +138,7 @@ class Polynomial:
 
 meow = Polynomial([1, 1])
 woof = Polynomial([0, 1, 0, 0, -6, -1])
-rawr = Polynomial(meow - woof)
+rawr = meow - woof
 print (rawr.coeff, rawr(3))
 # a = Polynomial([1,2,3])
 # b = Polynomial([3,2,1])
