@@ -3,6 +3,7 @@ import cmath
 import math
 import copy
 
+
 def norm(z1, z2, z3):
     return round(cmath.sqrt(z1 * z1.conjugate() + z2 * z2.conjugate() + z3 * z3.conjugate()).real, 3)
 
@@ -73,7 +74,7 @@ def readMatrix(f):
             elements = line.strip().split()
             theelements = []
             if thekey == 'op':
-                print elements
+                # print elements
                 Matrix[thekey].append(elements)
                 if [] in Matrix[thekey]:
                     Matrix[thekey].remove([])
@@ -83,6 +84,7 @@ def readMatrix(f):
             Matrix[thekey].append(theelements)
     if [] in Matrix[thekey]:
         Matrix[thekey].remove([])
+    print Matrix
     return Matrix
 
 
@@ -100,41 +102,60 @@ def mulRowByC(matA, i, c):
     result[i] = newrow
     return result
 
+
 # A = [[0,2,1,-1],[0,0,3,1],[0,0,0,0]]
 # print mulRowByC(A,0,2)
 
 # Question 6c
 
-def addRowMulByC(matA,i,c,j):
-    oldMat = mulRowByC(matA,i,c)
+def addRowMulByC(matA, i, c, j):
+    oldMat = mulRowByC(matA, i, c)
     newMat = matA[:]
     newrow = []
     for element in range(len(oldMat[j])):
         newrow.append(oldMat[j][element] + oldMat[i][element])
     newMat[j] = newrow
     return newMat
+
+
 # A = [[0,2,1,-1],[0,0,3,1],[0,0,0,0]]
 # print addRowMulByC(A,0,0.5,1)
 
-#Question 6d
-
+# Question 6d
+# I did not finish this question in the exam. Didn't understand what 'op' in the dictionary was.
+# But I think I fixed it now :D
 def gaussElimination(data):
-    newMatrix = []
-    for eachrow in data['matrix']:
-        if eachrow[0] == 1:
-            newMatrix.append(mulRowByC(float(eachrow[0]),float(eachrow[1]),float(eachrow[2])))
-        elif eachrow[0] == 2:
-            newMatrix.append(addRowMulByC(float(eachrow[0]),float(eachrow[1]),float(eachrow[2]),float(eachrow[3]))
-    return data['matrix'],newMatrix #I think it says it's supposed to be a tuple. :(
+    newMatrix = data['matrix'][:]  # Apparently I don't even need to deepcopy the matrix
+    for eachrow in data['op']:  # Loop over each list in the list assigned to key 'op' in dictionary called data
+        if eachrow[0] == '1':  # If the first element of that list is '1'
+            newMatrix = mulRowByC(newMatrix, int(eachrow[1]), float(eachrow[2]))  # Call mulRowByC,
+            # passing in as arguments whatever newMatrix is now and the remaining elements of the list,
+            # and assign it to newMatrix
+        elif eachrow[0] == '2':  # Else if first element of the list is '2',
+            newMatrix = addRowMulByC(newMatrix, int(eachrow[1]), float(eachrow[2]), int(eachrow[3]))
+            # Call addRowMulByC, passing in arguments whatever newMatrix is right now and the remaining
+            # elements of the list, and assign it to newMatrix
+    return data['matrix'], newMatrix  # The question asked me to return the old and new matrices in a tuple.
 
-#Question 7
+
+# f = open('C:\Users\HanWei\Dropbox\SUTDNotes\SUTDTerm3\DigitalWorld\MidTerms\TextFileMidTerm2015\gauss1.txt', 'r')
+# print gaussElimination(readMatrix(f))
+
+
+# Question 7
+# Got this one wrong :( Haven't fixed it yet
 def maxProductThree(num):
     allproducts = []
     for i in range(len(num)):
         for j in range(len(num)):
             for k in range(len(num)):
-                if i!= j and i != k and j != k:
-                    allproducts.append(num[i]*num[j]*num[k])
+                if i != j and i != k and j != k:
+                    allproducts.append(num[i] * num[j] * num[k])
+    for each in allproducts:
+        if each == 0:
+            allproducts.remove(each) #I think this is supposed to remove the products that are zeroes
     return max(allproducts)
-# num = [6,-3,-10,0,2]
-# print maxProductThree(num)
+num = [6,-3,-10,0,2]
+print maxProductThree(num)
+num = [-6,-3,-10,0,2]
+print maxProductThree(num)
