@@ -1,3 +1,6 @@
+# This is not my code, I merely helped my friend Jun Yi from class 15F04 to write some parts and adapted it to how I
+# think in programming. Then I just copied it into my own code :x Also note the path name of his file. You can do this
+# too if you are using a Unix based system such as Apple or any of the Linux distributions.
 f = open("./data1.txt")
 
 
