@@ -9,7 +9,8 @@ import numpy as np
 def energy_n(n):
     numerator = -((c.e ** 4) * c.m_e)
     denominator = (
-    8 * c.epsilon_0 ** 2 * n ** 2 * c.h ** 2)  # Note that it is epsilon_0**2 and not epsilon_0. There is a mistake in the notes.
+        8 * c.epsilon_0 ** 2 * n ** 2 * c.h ** 2)  # Note that it is epsilon_0**2 and not epsilon_0.
+    # There is a mistake in the notes.
     return round(numerator / denominator / c.e, 5)
 
 
@@ -276,7 +277,7 @@ def angular_wave_func(m, l, theta, phi):
 a = c.physical_constants['Bohr radius'][0]
 
 
-def radial_wave_func(n, l, r):  # THERE IS SOMETHING WRONG WITH l = 0 WHERE IS IT.
+def radial_wave_func(n, l, r):
     # y1 = (2.0/(n*a))**3
     # y2 = fact(n-l-1)/float(2*n*fact(n+l)**3)
     # ya = np.sqrt(y1*y2)*np.exp(-r/(n*a))
@@ -295,10 +296,30 @@ def radial_wave_func(n, l, r):  # THERE IS SOMETHING WRONG WITH l = 0 WHERE IS I
     return np.round(ans, 5)
 
 
-print radial_wave_func(1, 0, a)
-print radial_wave_func(2, 1, a)
-print radial_wave_func(2, 1, 2 * a)
-print radial_wave_func(3, 1, 2 * a)
+# print radial_wave_func(1, 0, a)
+# print radial_wave_func(2, 1, a)
+# print radial_wave_func(2, 1, 2 * a)
+# print radial_wave_func(3, 1, 2 * a)
 
 # Problem 9
+def hydrogen_wave_func(n, l, m, roa, Nx, Ny, Nz):
+    rad = np.vectorize(radial_wave_func)
+    ang = np.vectorize(angular_wave_func)
+    cartsp = np.vectorize(cartesianToSpherical)
+    mypow = np.vectorize(pow)
+    myround = np.vectorize(round)
+    myfloat = np.vectorize(float)
+    matx = np.linspace(-roa, roa, Nx)
+    maty = np.linspace(-roa, roa, Ny)
+    matz = np.linspace(-roa, roa, Nz)
+    xx, yy, zz = np.meshgrid(matx, maty, matz)
+    r, theta, phi = cartsp(xx, yy, zz)
+    radial = rad(n, l, r * a)
+    angular = np.absolute(ang(m, l, theta, phi))
+    psysquare = myround(mypow(myfloat(radial * angular), 2), 5)  # I am quite sure the formatting is wrong.
+    return xx.tolist(), yy.tolist(), zz.tolist(), psysquare.tolist()
 
+
+# print hydrogen_wave_func(2, 1, 1, 8, 2, 2, 2)
+print hydrogen_wave_func(2, 1, 1, 5, 3, 4, 2)
+# print hydrogen_wave_func(2, 0, 0, 3, 5, 4, 3)
