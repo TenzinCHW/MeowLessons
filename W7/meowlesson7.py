@@ -321,5 +321,5 @@ def hydrogen_wave_func(n, l, m, roa, Nx, Ny, Nz):
 
 
 # print hydrogen_wave_func(2, 1, 1, 8, 2, 2, 2)
-print hydrogen_wave_func(2, 1, 1, 5, 3, 4, 2)
+# print hydrogen_wave_func(2, 1, 1, 5, 3, 4, 2)
 # print hydrogen_wave_func(2, 0, 0, 3, 5, 4, 3)
