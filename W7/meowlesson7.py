@@ -312,14 +312,15 @@ def hydrogen_wave_func(n, l, m, roa, Nx, Ny, Nz):
     matx = np.linspace(-roa, roa, Nx)
     maty = np.linspace(-roa, roa, Ny)
     matz = np.linspace(-roa, roa, Nz)
-    xx, yy, zz = np.meshgrid(matx, maty, matz)
+    xx, yy, zz = myround(np.meshgrid(matx, maty, matz), 5)
     r, theta, phi = cartsp(xx, yy, zz)
     radial = rad(n, l, r * a)
     angular = np.absolute(ang(m, l, theta, phi))
     psysquare = myround(mypow(myfloat(radial * angular), 2), 5)  # I am quite sure the formatting is wrong.
-    return xx.tolist(), yy.tolist(), zz.tolist(), psysquare.tolist()
+    return xx, yy, zz, psysquare
+    # return xx.tolist(), yy.tolist(), zz.tolist(), psysquare.tolist()
 
 
 # print hydrogen_wave_func(2, 1, 1, 8, 2, 2, 2)
-# print hydrogen_wave_func(2, 1, 1, 5, 3, 4, 2)
+print hydrogen_wave_func(2, 1, 1, 5, 3, 4, 2)
 # print hydrogen_wave_func(2, 0, 0, 3, 5, 4, 3)
