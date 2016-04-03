@@ -39,10 +39,10 @@ def sphericalToCartesian(r, theta, phi):  # Quite straightforward, just copy fro
 
 def cartesianToSpherical(x, y, z):
     r = np.sqrt(x ** 2 + y ** 2 + z ** 2)
+    if x == 0 and y == 0: #Handles cases when phi = 0 degrees
+        phi = 0
     if x == 0 and y > 0:  # Handle cases when phi = 90 degrees
         phi = np.pi / 2
-    if x == 0 and y == 0:
-        phi = 0
     if x == 0 and y < 0:  # Handle cases when phi = 270 degrees
         phi = -np.pi / 2
     if x != 0:  # Handle all other cases for phi
