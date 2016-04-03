@@ -33,14 +33,16 @@ def radToDeg(rad):
 def sphericalToCartesian(r, theta, phi):  # Quite straightforward, just copy from worksheet
     x = r * np.sin(phi) * np.cos(theta)
     y = r * np.sin(phi) * np.sin(theta)
-    z = r * np.cos(phi)
+    z = r * -np.cos(phi)
     return round(x, 5), round(y, 5), round(z, 5)
 
 
 def cartesianToSpherical(x, y, z):
     r = np.sqrt(x ** 2 + y ** 2 + z ** 2)
-    if x == 0 and y >= 0:  # Handle cases when phi = 90 degrees
+    if x == 0 and y > 0:  # Handle cases when phi = 90 degrees
         phi = np.pi / 2
+    if x == 0 and y == 0:
+        phi = 0
     if x == 0 and y < 0:  # Handle cases when phi = 270 degrees
         phi = -np.pi / 2
     if x != 0:  # Handle all other cases for phi
@@ -52,12 +54,12 @@ def cartesianToSpherical(x, y, z):
     return round(r, 5), round(theta, 5), round(phi, 5)
 
 
-# print sphericalToCartesian(3,0,3.14)
-# print sphericalToCartesian(3,3.14,0)
-# print sphericalToCartesian(3,3.14,3.14)
-# print cartesianToSpherical(3,0,0)
-# print cartesianToSpherical(0,3,0)
-# print cartesianToSpherical(0,0,3)
+print sphericalToCartesian(3,0,np.pi)
+print sphericalToCartesian(3,np.pi,0)
+print sphericalToCartesian(3,3.14,3.14)
+print cartesianToSpherical(3,0,0)
+print cartesianToSpherical(0,3,0)
+print cartesianToSpherical(0,0,3)
 
 # Problem 4
 def fact(n):  # We've done this before
@@ -322,5 +324,5 @@ def hydrogen_wave_func(n, l, m, roa, Nx, Ny, Nz):
 
 
 # print hydrogen_wave_func(2, 1, 1, 8, 2, 2, 2)
-print hydrogen_wave_func(2, 1, 1, 5, 3, 4, 2)
+# print hydrogen_wave_func(2, 1, 1, 5, 3, 4, 2)
 # print hydrogen_wave_func(2, 0, 0, 3, 5, 4, 3)
