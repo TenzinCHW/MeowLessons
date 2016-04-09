@@ -13,22 +13,22 @@ reload(gfx)
 #
 ######################################################################
 
-desiredRight = 0.5
+desiredLeft = 0.75
 forwardVelocity = 0.1
 
 # No additional delay
 class Sensor(sm.SM):
     def getNextValues(self, state, inp):
-        distance = sonarDist.getDistanceRight(inp.sonars) 
+        distance = inp.sonars[0]
         print "Distance to wall: %.03f" % distance
         return (state, distance)
 
 # inp is the distance to the right
 class WallFollower(sm.SM):
     def getNextValues(self, state, inp):
-        k = 1
-        print k*(desiredRight-inp)
-        return state,io.Action(fvel=forwardVelocity,rvel = k*(desiredRight-inp))
+        k = 0.1
+        print k*(inp-desiredLeft) #k*(desiredRight-inp)
+        return state,io.Action(fvel=forwardVelocity,rvel = k*(inp-desiredLeft))
 #################
 # Your code here
 ################
