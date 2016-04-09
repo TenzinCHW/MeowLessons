@@ -31,6 +31,7 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from Tkinter import * #import Tkinter GUI library
+from eBot import eBot
 from eBot import * #import eBot library
 from time import sleep
     
