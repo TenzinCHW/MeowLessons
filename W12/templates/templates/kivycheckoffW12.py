@@ -30,17 +30,17 @@ class Ledcontroller(App):
     def LEDpress(self, instance):
         if instance.text == 'off':
             instance.text = 'on'
-            if instance.id='yellow':
+            if instance.id=='yellow':
                 GPIO.output(yellow, GPIO.HIGH)
             else:
                 GPIO.output(red, GPIO.HIGH)
 
         else:
-        instance.text = 'off'
-            if instance.id='yellow':
-                GPIO.output(yellow, GPIO.LOW)
-            else:
-                GPIO.output(red, GPIO.LOW)
+            instance.text = 'off'
+                if instance.id=='yellow':
+                    GPIO.output(yellow, GPIO.LOW)
+                else:
+                    GPIO.output(red, GPIO.LOW)
 
 
 Ledcontroller().run()
