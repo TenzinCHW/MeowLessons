@@ -37,10 +37,10 @@ class Ledcontroller(App):
 
         else:
             instance.text = 'off'
-                if instance.id=='yellow':
-                    GPIO.output(yellow, GPIO.LOW)
-                else:
-                    GPIO.output(red, GPIO.LOW)
+            if instance.id=='yellow':
+                GPIO.output(yellow, GPIO.LOW)
+            else:
+                GPIO.output(red, GPIO.LOW)
 
 
 Ledcontroller().run()
