@@ -21,7 +21,7 @@ while True:
         GPIO.output(red, GPIO.HIGH)
     if yellowLED == 'on':
         GPIO.output(yellow, GPIO.HIGH)
-    if redLEO == 'off':
+    if redLED == 'off':
         GPIO.output(red, GPIO.LOW)
     if yellowLED == 'off':
         GPIO.output(yellow, GPIO.LOW)
