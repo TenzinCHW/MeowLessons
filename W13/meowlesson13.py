@@ -130,11 +130,7 @@ def countNumOpenLocker(K):
                 lockers[j] = 'c'
             else:
                 lockers[j] = 'o'
-    count = 0
-    for i in lockers:
-        if i == 'o':
-            count += 1
-    return count
+    return lockers.count('o')
 
 
-print countNumOpenLocker(2000)
+print countNumOpenLocker(3)
