@@ -33,7 +33,7 @@ class MenuScreen(Screen):
         Screen.__init__(self, **kwargs)
         self.layout = BoxLayout()
         # self.btnQuit = Button(text='Quit now!',on_press=app.quitApp)
-        # self.layout.add_widget(self.btnQuit)
+        # self.add_widget(self.btnQuit)
         # Add your code below to add the two Buttons
         pass
 
