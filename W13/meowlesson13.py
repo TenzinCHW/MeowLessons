@@ -1,5 +1,36 @@
 # Finals 2015
+from libdw import sm
 
+
+# Question 3
+
+def compTrace(A):
+    meow = 0
+    total = 0
+    for i in range(len(A[0])):
+        total += A[meow][meow]
+        meow += 1
+    return total
+
+
+# A = [[2.2, 2, 3.1], [4, 5, 6], [7, 8, 9]]
+# print compTrace(A)
+
+
+# Question 4
+def findKey(dInput, strInput):
+    finallist = []
+    for key, value in dInput.iteritems():
+        if value == strInput:
+            finallist.append(key)
+    return sorted(finallist)
+
+
+# dInput = {1:'singapore',20:'china',4:'japan',5:'china',10:'japan'}
+# print findKey(dInput,'china')
+# print findKey(dInput,'korea')
+
+# Question 5
 class Square():
     def __init__(self, x=0.0, y=0.0, sideLength=1.0):
         self.x = float(x)
@@ -22,28 +53,30 @@ class Square():
         return abs(self.x - px) <= self.sideLength / 2 and abs(self.y - py) <= self.sideLength / 2
 
     def containSquare(self, inSquare):
-        halflength = inSquare.sideLength/2.0
-        x1,y1 = inSquare.x+halflength, inSquare.y+halflength
-        x2,y2 = inSquare.x+halflength, inSquare.y-halflength
-        x3,y3 = inSquare.x-halflength, inSquare.y + halflength
-        x4,y4 = inSquare.x-halflength,inSquare.y-halflength
-        return self.containPoint(x1,y1) and self.containPoint(x2,y2) and self.containPoint(x3,y3) and self.containPoint(x4,y4)
+        halflength = inSquare.sideLength / 2.0
+        x1, y1 = inSquare.x + halflength, inSquare.y + halflength
+        x2, y2 = inSquare.x + halflength, inSquare.y - halflength
+        x3, y3 = inSquare.x - halflength, inSquare.y + halflength
+        x4, y4 = inSquare.x - halflength, inSquare.y - halflength
+        return self.containPoint(x1, y1) and self.containPoint(x2, y2) and self.containPoint(x3,
+                                                                                             y3) and self.containPoint(
+            x4, y4)
 
 
-s = Square(x=1, y=1, sideLength=2.0)
-print s.getCenter()
-print s.getSideLength()
-print s.getArea()
-print s.getPerimeter()
-print s.containPoint(0, 0)
-print s.containPoint(0, -0.5)
-print s.containPoint(1, 1.5)
-print s.containSquare(Square(x=1.5, y=1, sideLength=1))
-print s.containSquare(Square(x=1.5, y=1, sideLength=1.1))
-s2 = Square()
-print s2.getCenter()
-print s2.getSideLength()
-print s2.getPerimeter()
+# s = Square(x=1, y=1, sideLength=2.0)
+# print s.getCenter()
+# print s.getSideLength()
+# print s.getArea()
+# print s.getPerimeter()
+# print s.containPoint(0, 0)
+# print s.containPoint(0, -0.5)
+# print s.containPoint(1, 1.5)
+# print s.containSquare(Square(x=1.5, y=1, sideLength=1))
+# print s.containSquare(Square(x=1.5, y=1, sideLength=1.1))
+# s2 = Square()
+# print s2.getCenter()
+# print s2.getSideLength()
+# print s2.getPerimeter()
 
 # (1.0, 1.0)
 # 2.0
@@ -57,3 +90,51 @@ print s2.getPerimeter()
 # (0.0, 0.0)
 # 1.0
 # 4.0
+
+
+class Elevator(sm.SM):
+    startState = 'First'
+
+    def getNextValues(self, state, inp):
+        if state == 'First':
+            if inp == 'Up':
+                nextstate = 'Second'
+            else:
+                nextstate = 'First'
+        elif state == 'Second':
+            if inp == 'Up':
+                nextstate = 'Third'
+            else:
+                nextstate = 'First'
+        else:
+            if inp == 'Up':
+                nextstate = 'Third'
+            else:
+                nextstate = 'Second'
+        return nextstate, nextstate
+
+
+# e = Elevator()
+# print e.transduce(['Up','Up','Up','Up','Down','Down','Down','Up'])
+
+# Question 7
+
+def countNumOpenLocker(K):
+    lockers = []
+    for i in range(K):
+        lockers.append('c')
+
+    for i in range(1, K + 1):
+        for j in range(0, K, i):
+            if lockers[j] == 'o':
+                lockers[j] = 'c'
+            else:
+                lockers[j] = 'o'
+    count = 0
+    for i in lockers:
+        if i == 'o':
+            count += 1
+    return count
+
+
+print countNumOpenLocker(2000)
