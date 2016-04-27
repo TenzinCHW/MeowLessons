@@ -144,10 +144,9 @@ class TouchMap(sm.SM):
         elif e == 'TouchUpdate':
             if mapT2P(x, y) == state:
                 out = 0
-                nextstate = state
             else:
                 out = mapT2P(x, y)
-                nextstate = out
+            nextstate = out
         else:
             out = mapT2P(x, y)
             nextstate = out

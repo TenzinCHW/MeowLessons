@@ -125,7 +125,8 @@ def countNumOpenLocker(K):
         lockers.append('c')
 
     for i in range(1, K + 1):
-        for j in range(0, K, i):
+        for j in range(i-1
+                , K, i):
             if lockers[j] == 'o':
                 lockers[j] = 'c'
             else:
@@ -133,4 +134,4 @@ def countNumOpenLocker(K):
     return lockers.count('o')
 
 
-print countNumOpenLocker(3)
+print countNumOpenLocker(1000000)
