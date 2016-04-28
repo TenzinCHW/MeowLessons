@@ -120,17 +120,16 @@ class Elevator(sm.SM):
 # Question 7
 
 def countNumOpenLocker(K):
-    lockers = []
+    lockers = []  # Creates a list of lockers
     for i in range(K):
-        lockers.append('c')
+        lockers.append('c')  # Add on K lockers, all closed.
 
-    for i in range(1, K + 1):
-        for j in range(i-1
-                , K, i):
+    for i in range(1, K + 1):  # For every single locker
+        for j in range(i - 1, K, i):  # Start at the i-th locker, and increment by i each time through this loop
             if lockers[j] == 'o':
-                lockers[j] = 'c'
+                lockers[j] = 'c'  # Close the locker if it's open
             else:
-                lockers[j] = 'o'
+                lockers[j] = 'o'  # Open the locker if it's closed
     return lockers.count('o')
 
 
