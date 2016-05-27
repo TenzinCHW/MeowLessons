@@ -2,6 +2,7 @@ import scipy.constants as c
 
 import numpy as np
 
+
 def degToRad(deg):
     return round(float(deg) / 180 * c.pi, 5)
 
@@ -22,7 +23,7 @@ def sphericalToCartesian(r, theta, phi):  # Quite straightforward, just copy fro
 
 def cartesianToSpherical(x, y, z):
     r = np.sqrt(x ** 2 + y ** 2 + z ** 2)
-    if x == 0 and y == 0: #Handles cases when phi = 0 degrees
+    if x == 0 and y == 0:  # Handles cases when phi = 0 degrees
         phi = 0
     if x == 0 and y > 0:  # Handle cases when phi = 90 degrees
         phi = np.pi / 2
@@ -37,12 +38,13 @@ def cartesianToSpherical(x, y, z):
     return round(r, 5), round(theta, 5), round(phi, 5)
 
 
-print sphericalToCartesian(3,0,np.pi)
-print sphericalToCartesian(3,np.pi,0)
-print sphericalToCartesian(3,3.14,3.14)
-print cartesianToSpherical(3,0,0)
-print cartesianToSpherical(0,3,0)
-print cartesianToSpherical(0,0,3)
+print sphericalToCartesian(3, 0, np.pi)
+print sphericalToCartesian(3, np.pi, 0)
+print sphericalToCartesian(3, 3.14, 3.14)
+print cartesianToSpherical(3, 0, 0)
+print cartesianToSpherical(0, 3, 0)
+print cartesianToSpherical(0, 0, 3)
+
 
 # Problem 4
 def fact(n):  # We've done this before
@@ -304,7 +306,9 @@ def hydrogen_wave_func(n, l, m, roa, Nx, Ny, Nz):
     psysquare = myround(mypow(myfloat(radial * angular), 2), 5)  # I am quite sure the formatting is wrong.
     return xx, yy, zz, psysquare
 
-x,y,z,mag = hydrogen_wave_func(2,1,0,10,20,20,20)
+
+# Create data files for plotting in 2D
+x, y, z, mag = hydrogen_wave_func(2, 1, 1, 10, 20, 20, 20)
 x.dump('xdata210.dat')
 y.dump('ydata210.dat')
 z.dump('zdata210.dat')

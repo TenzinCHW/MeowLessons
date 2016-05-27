@@ -54,12 +54,12 @@ def cartesianToSpherical(x, y, z):
     return round(r, 5), round(theta, 5), round(phi, 5)
 
 
-print sphericalToCartesian(3,0,np.pi)
-print sphericalToCartesian(3,np.pi,0)
-print sphericalToCartesian(3,3.14,3.14)
-print cartesianToSpherical(3,0,0)
-print cartesianToSpherical(0,3,0)
-print cartesianToSpherical(0,0,3)
+# print sphericalToCartesian(3,0,np.pi)
+# print sphericalToCartesian(3,np.pi,0)
+# print sphericalToCartesian(3,3.14,3.14)
+# print cartesianToSpherical(3,0,0)
+# print cartesianToSpherical(0,3,0)
+# print cartesianToSpherical(0,0,3)
 
 # Problem 4
 def fact(n):  # We've done this before
@@ -208,6 +208,11 @@ def L32(x):
     return -20 * x ** 3 + 300 * x ** 2 - 1200 * x + 1200
 
 
+def L33(x):
+    return -120 * x ** 3 + 2160 * x ** 2 - 10800 * x + 14400
+
+
+
 def assocLaguerre(p, qmp):
     if qmp == 0:
         if p == 0:
@@ -290,8 +295,6 @@ def radial_wave_func(n, l, r):
 
     lfunc = assocLaguerre(2 * l + 1, n - l - 1)
     y = lfunc(2 * float(r) / (n * a))
-    # y1 = (2.0 / (a * n)) ** 3
-    # y2 = fact(n - l - 1)/(2 * n * fact(n + 1) ** 3)
     ya = np.sqrt((2.0 / (a * n)) ** 3 * fact(n - l - 1) / (2 * n * fact(n + l) ** 3)) * np.e ** (-float(r) / (n * a))
     yb = (2 * float(r) / n / a) ** l
     ans = ya * yb * y / (a ** -1.5)
@@ -318,11 +321,11 @@ def hydrogen_wave_func(n, l, m, roa, Nx, Ny, Nz):
     r, theta, phi = cartsp(xx, yy, zz)
     radial = rad(n, l, r * a)
     angular = np.absolute(ang(m, l, theta, phi))
-    psysquare = myround(mypow(myfloat(radial * angular), 2), 5)  # I am quite sure the formatting is wrong.
+    psysquare = myround(mypow(myfloat(radial * angular), 2), 5)  # I am quite sure the formatting is wrong. Aaaand it is not.
+    print len(xx)
     return xx, yy, zz, psysquare
-    # return xx.tolist(), yy.tolist(), zz.tolist(), psysquare.tolist()
 
 
-# print hydrogen_wave_func(2, 1, 1, 8, 2, 2, 2)
+print hydrogen_wave_func(2, 1, 1, 8, 2, 2, 2)
 # print hydrogen_wave_func(2, 1, 1, 5, 3, 4, 2)
 # print hydrogen_wave_func(2, 0, 0, 3, 5, 4, 3)
