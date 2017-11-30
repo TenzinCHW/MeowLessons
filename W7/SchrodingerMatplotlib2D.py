@@ -2,8 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-x = np.load('xdata210.dat')
-mag = np.load('density210.dat')
+#x = np.load('xdata210.dat')
+#mag = np.load('density210.dat')
+x = np.load('xdata300.dat')
+mag = np.load('density300.dat')
 
 plt.plot(x, mag)
 # ax = fig.add_subplot(111, projection='3d')

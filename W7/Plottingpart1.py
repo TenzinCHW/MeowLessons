@@ -95,6 +95,26 @@ def p33(theta):
     return -15 * np.sin(theta) ** 3
 
 
+def p40(theta):
+    return 0.125 * (35 * np.cos(theta) ** 4 - 30 * np.cos(theta) ** 2 + 3)
+
+
+def p41(theta):
+    return -2.5 * (7 * np.cos(theta) ** 3 - 3 * np.cos(theta)) * np.sin(theta)
+
+
+def p42(theta):
+    return 7.5 * (7 * np.cos(theta) ** 2 - 1) * np.sin(theta) ** 2
+
+
+def p43(theta):
+    return -105 * np.cos(theta) * np.sin(theta) ** 3
+
+
+def p44(theta):
+    return 105 * np.sin(theta) ** 4
+
+
 def assocLegendre(m, l):
     if l == 0:
         if m == 0:
@@ -120,6 +140,17 @@ def assocLegendre(m, l):
             return p32
         elif m == 3:
             return p33
+    elif l == 4:
+        if m == 0:
+            return p40
+        elif m == 1:
+            return p41
+        elif m == 2:
+            return p42
+        elif m == 3:
+            return p43
+        elif m == 4:
+            return p44
 
 
 # f = assocLegendre(0,0)
@@ -149,6 +180,14 @@ def L03(x):
     return 6
 
 
+def L05(x):
+    return 120
+
+
+def L07(x):
+    return 5040
+
+
 def L10(x):
     return 1 - x
 
@@ -163,6 +202,10 @@ def L12(x):
 
 def L13(x):
     return -24 * x + 96
+
+
+def L15(x):
+    return -720 * (x - 6)
 
 
 def L20(x):
@@ -193,6 +236,30 @@ def L32(x):
     return -20 * x ** 3 + 300 * x ** 2 - 1200 * x + 1200
 
 
+def L33(x):
+    return -120 * x ** 3 + 2160 * x ** 2 - 10800 * x + 14400
+
+
+def L40(x):
+    return x ** 4 - 16 * x ** 3 + 72 * x ** 2 - 96 * x +24
+
+
+def L41(x):
+    return 5 * x ** 4 - 100 * x ** 3 + 600 * x ** 2 - 1200 * x + 600
+
+
+def L42(x):
+    return 30 * x ** 4 - 720 * x ** 3 + 5400 * x ** 2 - 14400 * x + 10800
+
+
+def L43(x):
+    return -210 * x ** 4 + 5880 * x ** 3 - 52920 * x ** 2 + 176400 * x - 176400
+
+
+def L44(x):
+    return 1680 * x ** 4 - 53760 * x ** 3 + 564480 * x ** 2 - 2257920 * x + 2822400
+
+
 def assocLaguerre(p, qmp):
     if qmp == 0:
         if p == 0:
@@ -203,6 +270,10 @@ def assocLaguerre(p, qmp):
             return L02
         elif p == 3:
             return L03
+        elif p == 5:
+            return L05
+        elif p == 7:
+            return L07
     elif qmp == 1:
         if p == 0:
             return L10
@@ -212,6 +283,8 @@ def assocLaguerre(p, qmp):
             return L12
         elif p == 3:
             return L13
+        elif p == 5:
+            return L15
     elif qmp == 2:
         if p == 0:
             return L20
@@ -230,6 +303,17 @@ def assocLaguerre(p, qmp):
             return L32
         elif p == 3:
             return L33
+    elif qmp == 4:
+        if p == 0:
+            return L40
+        elif p == 1:
+            return L41
+        elif p == 2:
+            return L42
+        elif p == 3:
+            return L43
+        elif p == 4:
+            return L44
 
 
 # f = assocLaguerre(1,0)
@@ -272,7 +356,6 @@ def radial_wave_func(n, l, r):
     # lfunc = assocLaguerre(2*l+1,n-l-1)
     # yc = lfunc(2*r/(n*a))
     # return np.round((ya*yb*yc)/(a**(-1.5)),5)
-
     lfunc = assocLaguerre(2 * l + 1, n - l - 1)
     y = lfunc(2 * float(r) / (n * a))
     # y1 = (2.0 / (a * n)) ** 3
@@ -308,8 +391,14 @@ def hydrogen_wave_func(n, l, m, roa, Nx, Ny, Nz):
 
 
 # Create data files for plotting in 2D
-x, y, z, mag = hydrogen_wave_func(2, 1, 1, 10, 20, 20, 20)
-x.dump('xdata210.dat')
-y.dump('ydata210.dat')
-z.dump('zdata210.dat')
-mag.dump('density210.dat')
+# x, y, z, mag = hydrogen_wave_func(2, 1, 1, 10, 20, 20, 20)
+# x.dump('xdata210.dat')
+# y.dump('ydata210.dat')
+# z.dump('zdata210.dat')
+# mag.dump('density210.dat')
+x, y, z, mag = hydrogen_wave_func(3, 2, 1, 10, 20, 20, 20)
+x.dump('xdata300.dat')
+y.dump('ydata300.dat')
+z.dump('zdata300.dat')
+mag.dump('density300.dat')
+print("done")
